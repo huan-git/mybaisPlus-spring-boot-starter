@@ -17,19 +17,20 @@ public class ServiceImplUtils {
     public static String getServiceImplJava(MybatisPlusProperties properties, String tableName) {
         String date = StringUtils.date2Str(new Date());
         String basePackage = properties.getBasePackage();
+        String daoPackage = properties.getDaoPackage();
         String className = StringUtils.underlineToCamel(tableName);
         String classname = StringUtils.initcap(className);
-        return get(basePackage,date,className,classname);
+        return get(basePackage,daoPackage,date,className,classname);
     }
 
-    public static String get(String basePackage, String date, String className,String classname) {
+    public static String get(String basePackage,String daoPackage, String date, String className,String classname) {
         StringBuilder sb = new StringBuilder();
         sb.append("package ").append(basePackage).append(".service.impl;\n\n")
                 .append("import javax.annotation.Resource;").append("\n")
                 .append("import org.springframework.stereotype.Service;").append("\n\n")
                 .append("import ").append(basePackage).append(".service.").append(className)
                 .append("Service;").append("\n")
-                .append("import ").append(basePackage).append(".dao.").append(className)
+                .append("import ").append(daoPackage).append(".").append(className)
                 .append("Mapper;").append("\n\n")
                 .append("/***\n")
                 .append(" *@author Created by Mybatis Generator on ").append(date).append("\n")
