@@ -17,7 +17,7 @@ public class MybatisPlusProperties {
     /**
      * 配置文件前缀
      */
-    public static final String MYBATIS_PREFIX = "mybatisplus";
+    public static final String MYBATIS_PREFIX = "gen";
 
     private String jdbcDriver;
 
